@@ -5,6 +5,11 @@ COPY service /service
 WORKDIR /servise
 EXPOSE 8000
 
+RUN apk add postgresql-client build-base postgresql-dev
+
+# Upgrade pip
+RUN /usr/local/bin/python -m pip install --upgrade pip
+
 
 RUN pip install -r /temp/requirements.txt
 
